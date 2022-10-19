@@ -1,15 +1,14 @@
-import '../styles/globals.scss'
-import type { AppProps } from 'next/app'
-import {ChakraProvider} from "@chakra-ui/react"
-import {theme} from "../styles/theme"
+import "../styles/globals.scss";
+import type { AppProps } from "next/app";
+import { ChakraProvider } from "@chakra-ui/react";
+import { theme } from "../styles/theme";
 import Head from "next/head";
 
 function MyApp({ Component, pageProps }: AppProps) {
-
   return (
     <>
-    <Head>
-      <title>Digital Bank</title>
+      <Head>
+        <title>Digital Bank</title>
       </Head>
       <ChakraProvider theme={theme}>
         <Component {...pageProps} />
@@ -18,4 +17,4 @@ function MyApp({ Component, pageProps }: AppProps) {
   );
 }
 
-export default MyApp
+export default MyApp;

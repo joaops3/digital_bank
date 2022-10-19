@@ -1,9 +1,9 @@
 import React, { useState } from 'react'
 import { NextPage } from "next"
-import Header from "../../components/header/Header"
 import {Flex, SimpleGrid, Box, Text, Heading, Progress, Button, Divider} from "@chakra-ui/react"
 import {options} from "../../utils/chartConfig"
 import dynamic from "next/dynamic"
+import MainContainer from "../../components/UI/MainContainer"
 
 
 const Chart = dynamic(()=> import("react-apexcharts"), {ssr: false})
@@ -15,8 +15,7 @@ const [chartConfig, setChartConfig] = useState(options)
 const series = [{ name: "series1", data: [31, 70, 50, 100, 70, 50, 90] }];
   return (
     <>
-      <Header></Header>
-      <Flex as="section" w="100%" maxWidth="1420px" mx="auto" px="8">
+      <MainContainer>
         <SimpleGrid flex="1" minChildWidth={320} spacing="2" mx={{ base: "auto", mx: "0" }}>
           <Box bg="gray.100" borderRadius={"8"} px="5" py="5">
             <Heading>Fatura Atual</Heading>
@@ -39,7 +38,7 @@ const series = [{ name: "series1", data: [31, 70, 50, 100, 70, 50, 90] }];
             <Chart options={chartConfig} series={series} type="area" height={200}></Chart>
           </Box>
         </SimpleGrid>
-      </Flex>
+      </MainContainer>
     </>
   );
 }

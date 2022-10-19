@@ -1,4 +1,4 @@
-import { Table, Thead, Tbody, Tr, TableCaption } from "@chakra-ui/react"
+import { Table, Thead, Tbody, Tr, TableCaption, Flex, Box } from "@chakra-ui/react"
 import React from 'react'
 
 interface Props {
@@ -9,18 +9,14 @@ interface Props {
 
 const TableStatement: React.FC<Props> = ({tableCaption, tableHead, children}) => {
   return (
-    <Table>
-      <TableCaption>{tableCaption}</TableCaption>
+    <Table bg="gray.100" borderRadius={"8"}>
       <Thead>
-      <Tr>
-      {tableHead}
-      </Tr>
+        <TableCaption fontSize={{ base: 20, md: 40 }}>{tableCaption}</TableCaption>
+        <Tr borderBottom={"gray.900"}>{tableHead}</Tr>
       </Thead>
-      <Tbody>
-        {children}
-      </Tbody>
+      <Tbody >{children}</Tbody>
     </Table>
-  )
+  );
 }
 
 export default TableStatement

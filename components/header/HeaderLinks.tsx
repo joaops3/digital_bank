@@ -1,4 +1,4 @@
-import React, { forwardRef } from 'react'
+import React, { forwardRef } from "react";
 import {
   Flex,
   HStack,
@@ -16,9 +16,7 @@ import {
 import { BiChevronDown, BiPhone } from "react-icons/bi";
 import MenuItem from "./MenuItem";
 
-interface Props {
-
-}
+interface Props {}
 
 const HeaderLinks = forwardRef<HTMLDivElement>(({}, ref) => {
   return (
@@ -87,4 +85,4 @@ const HeaderLinks = forwardRef<HTMLDivElement>(({}, ref) => {
   );
 });
 
-export default HeaderLinks
+export default HeaderLinks;

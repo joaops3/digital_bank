@@ -23,6 +23,7 @@ import { BiMenu, BiShow } from "react-icons/bi";
 import MenuItem from "./MenuItem";
 import HeaderLinks from "./HeaderLinks";
 import DrawerBar from "./Drawer";
+import Link from "next/link";
 
 const Header: React.FC = () => {
   const isMobile = useBreakpointValue({
@@ -47,7 +48,10 @@ const Header: React.FC = () => {
       >
         <Flex w={{ base: "100%", md: "100%" }} maxWidth={1420} justify="space-between" align={"center"} py="4">
           <HStack>
-            <Image src="logo.svg" width={"100px"} mr="2"></Image>
+            <Link href="/profile">
+              
+              <Image src="/logo.svg" width={"100px"} mr="2" _hover={{cursor: "pointer"}}></Image>
+            </Link>
             {isMobile ? <BiMenu onClick={() => onOpen()}></BiMenu> : <HeaderLinks />}
           </HStack>
           <HStack spacing={5}>
