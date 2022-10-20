@@ -1,33 +1,37 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
-import Image from 'next/image'
-import {Flex, VStack, Input as ChakraInput, InputGroup, FormLabel, FormControl, InputLeftElement, FormHelperText, Button, FormErrorMessage} from "@chakra-ui/react"
-import { FaUserAlt, FaLock } from "react-icons/fa";
+
+import {Flex, VStack, Input as ChakraInput, InputGroup, FormLabel, FormControl, InputLeftElement, FormHelperText, Button, FormErrorMessage, Image} from "@chakra-ui/react"
+
+import {User, LockSimple} from "phosphor-react"
 import Link from "next/link"
 
 
 const Home: NextPage = () => {
   return (
     <>
-     
-
       <Flex w={"100%"} height={"100vh"} align={"center"} justify={"center"}>
         <Flex
           as={"form"}
           bg={"gray.200"}
           w="100%"
-          maxWidth={340}
+          maxWidth={360}
           direction={"column"}
           p={5}
+          px="8"
           borderRadius="8"
-         // boxShadow={"0 0 1rem 2px #9AE6B477"}
+          // boxShadow={"0 0 1rem 2px #9AE6B477"}
         >
           <VStack spacing={"5"}>
+            <Image src="/logo.svg" p="5" py="7"></Image>
+            <FormControl isInvalid={true} display="flex" justifyContent={"center"}>
+
             <FormErrorMessage my={3}>E-mail ou senha incorretos!</FormErrorMessage>
-            <FormControl>
+            </FormControl>
+            <FormControl >
               <FormLabel htmlFor="e-mail">E-mail</FormLabel>
               <InputGroup>
-                <InputLeftElement children={<FaUserAlt />} />
+                <InputLeftElement children={<User size={20} />} />
                 <ChakraInput
                   id="e-mail"
                   type={"e-mail"}
@@ -42,7 +46,7 @@ const Home: NextPage = () => {
             <FormControl>
               <FormLabel htmlFor="password">Password</FormLabel>
               <InputGroup>
-                <InputLeftElement children={<FaLock></FaLock>} />
+                <InputLeftElement children={<LockSimple size={20} />} />
                 <ChakraInput
                   id="password"
                   type={"Password"}
@@ -53,7 +57,7 @@ const Home: NextPage = () => {
                   colorScheme={"whatsapp"}
                 ></ChakraInput>
               </InputGroup>
-              <Link href="/recovery">
+              <Link href="/forgot-password">
                 <FormHelperText color={"green.800"} _hover={{ color: "green.600" }} cursor="pointer">
                   Esqueci minha senha
                 </FormHelperText>

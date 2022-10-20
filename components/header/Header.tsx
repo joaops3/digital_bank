@@ -76,9 +76,9 @@ const Header: React.FC = () => {
                 <Box p="3">
                   <Text>Conta: xxxxx-xx</Text>
                 </Box>
-                <MenuItem href="#">Dados Cadastrais</MenuItem>
+                <MenuItem href="/profile/user/data">Dados Cadastrais</MenuItem>
 
-                <MenuItem href="#">Logout</MenuItem>
+                <MenuItem href="/">Logout</MenuItem>
               </MenuList>
             </Menu>
           </HStack>
