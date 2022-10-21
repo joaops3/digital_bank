@@ -55,7 +55,7 @@ const HeaderLinks = forwardRef<HTMLDivElement>(({}, ref) => {
           Saldo
         </MenuButton>
         <MenuList bg="gray.100" borderColor={"gray.100"}>
-          <MenuItem href="profile/balance/statement">Extrato</MenuItem>
+          <MenuItem href="/profile/balance/statement">Extrato</MenuItem>
 
           <MenuItem href="/profile/pix/pix_register">Cadastrar Chave Pix</MenuItem>
 

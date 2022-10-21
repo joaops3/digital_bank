@@ -73,11 +73,12 @@ const FormUser = ({ type = "register" }) => {
         <Heading my="2">{type === "register" ? "CADASTRAR" : "EDITAR"}</Heading>
         <SimpleGrid
           column={2}
-          mt={["500px", "0px"]}
+          mt={["0px", "0px"]}
           minChildWidth={["none", "500px"]}
           spacingX={2}
           spacingY={2}
-          bg={"gray.200"}
+          bg={"gray.100"}
+          boxShadow={"0 0 4px RGBA(0, 0, 0, 0.16)"}
           p={5}
           px="8"
           borderRadius="8"
@@ -100,7 +101,7 @@ const FormUser = ({ type = "register" }) => {
                 />
               )}
             />
-            <FormErrorMessage>{errors.users?.last_name?.message}</FormErrorMessage>
+            <FormErrorMessage>{errors.users?.first_name?.message}</FormErrorMessage>
           </FormControl>
           <FormControl isInvalid={errors.users?.last_name ? true : false}>
             <FormLabel>Sobrenome</FormLabel>
@@ -120,7 +121,7 @@ const FormUser = ({ type = "register" }) => {
                 />
               )}
             />
-            <FormErrorMessage>{errors.users?.date_of_birth?.message}</FormErrorMessage>
+            <FormErrorMessage>{errors.users?.last_name?.message}</FormErrorMessage>
           </FormControl>
 
           <FormControl isInvalid={errors.users?.date_of_birth ? true : false}>
@@ -141,7 +142,7 @@ const FormUser = ({ type = "register" }) => {
                 />
               )}
             />
-            <FormErrorMessage>{errors.users?.mothers_name?.message}</FormErrorMessage>
+            <FormErrorMessage>{errors.users?.date_of_birth?.message}</FormErrorMessage>
           </FormControl>
           <FormControl isInvalid={errors.users?.mothers_name ? true : false}>
             <FormLabel>Nome da mãe</FormLabel>
@@ -154,7 +155,7 @@ const FormUser = ({ type = "register" }) => {
                 <ChakraInput id="users.mothers_name" size={"md"} bg="white" focusBorderColor="green.300" {...field} />
               )}
             />
-            <FormErrorMessage>{errors.users?.genre?.message}</FormErrorMessage>
+            <FormErrorMessage>{errors.users?.mothers_name?.message}</FormErrorMessage>
           </FormControl>
           <FormControl isInvalid={errors.users?.genre ? true : false}>
             <FormLabel>Genero</FormLabel>
@@ -180,26 +181,26 @@ const FormUser = ({ type = "register" }) => {
           </FormControl>
 
           <Stack> </Stack>
-          <FormControl isInvalid={errors.users?.document ? true : false}>
-            <FormLabel>CPF</FormLabel>
-            <Controller
-              name="users.document"
-              control={control}
-              defaultValue={getValues("users.document")}
-              rules={{ required: "O CPF é obrigatorio", maxLength: 15 }}
-              render={({ field }) => (
-                <ChakraInput
-                  id="users.document"
-                  type="number"
-                  size={"md"}
-                  bg="white"
-                  focusBorderColor="green.300"
-                  {...field}
-                />
-              )}
-            />
-            <FormErrorMessage>{errors.users?.mobile?.message}</FormErrorMessage>
-          </FormControl>
+        {  type ==="edit" ? <div></div> :  <FormControl isInvalid={errors.users?.document ? true : false}>
+              <FormLabel>CPF</FormLabel>
+              <Controller
+                name="users.document"
+                control={control}
+                defaultValue={getValues("users.document")}
+                rules={{ required: "O CPF é obrigatorio", maxLength: 15 }}
+                render={({ field }) => (
+                  <ChakraInput
+                    id="users.document"
+                    type="number"
+                    size={"md"}
+                    bg="white"
+                    focusBorderColor="green.300"
+                    {...field}
+                  />
+                )}
+              />
+              <FormErrorMessage>{errors.users?.document?.message}</FormErrorMessage>
+            </FormControl>}
           <Stack></Stack>
           <FormControl isInvalid={errors.users?.mobile ? true : false}>
             <FormLabel>Celular</FormLabel>
@@ -207,7 +208,7 @@ const FormUser = ({ type = "register" }) => {
               name="users.mobile"
               control={control}
               defaultValue={getValues("users.mobile")}
-              rules={{ required: "O CPF é obrigatorio", maxLength: 15 }}
+              rules={{ required: "O Celular é obrigatorio", maxLength: 15 }}
               render={({ field }) => (
                 <ChakraInput
                   id="users.mobile"
@@ -219,7 +220,7 @@ const FormUser = ({ type = "register" }) => {
                 />
               )}
             />
-            <FormErrorMessage>{errors.users?.phone?.message}</FormErrorMessage>
+            <FormErrorMessage>{errors.users?.mobile?.message}</FormErrorMessage>
           </FormControl>
           <FormControl isInvalid={errors.users?.phone ? true : false}>
             <FormLabel>Telefone</FormLabel>
@@ -239,7 +240,7 @@ const FormUser = ({ type = "register" }) => {
                 />
               )}
             />
-            <FormErrorMessage>{errors.users?.email?.message}</FormErrorMessage>
+            <FormErrorMessage>{errors.users?.phone?.message}</FormErrorMessage>
           </FormControl>
           <FormControl isInvalid={errors.users?.email ? true : false}>
             <FormLabel>Email</FormLabel>
@@ -259,57 +260,63 @@ const FormUser = ({ type = "register" }) => {
                 />
               )}
             />
-            <FormErrorMessage>{errors.users?.password?.message}</FormErrorMessage>
+            <FormErrorMessage>{errors.users?.email?.message}</FormErrorMessage>
           </FormControl>
           <Stack></Stack>
-          <FormControl isInvalid={errors.users?.password ? true : false}>
-            <FormLabel>Senha</FormLabel>
-            <Controller
-              name="users.password"
-              control={control}
-              defaultValue={getValues("users.password")}
-              rules={{ required: "A senha é obrigatorio", maxLength: 40 }}
-              render={({ field }) => (
-                <Popover>
-                  <PopoverTrigger>
-                    <ChakraInput
-                      id="users.password"
-                      size={"md"}
-                      bg="white"
-                      type="password"
-                      focusBorderColor="green.300"
-                      {...field}
-                    />
-                  </PopoverTrigger>
-                  <PopoverContent>
-                    <PopoverArrow />
-                    <PopoverCloseButton />
-                    <PopoverHeader>Requisitos</PopoverHeader>
-                    <PopoverBody mx="auto">
-                      <UnorderedList>
-                        <ListItem>A senha deve conter 1 Letra Maiuscula</ListItem>
-                        <ListItem>A senha deve conter 1 Letra Minuscula</ListItem>
-                        <ListItem>A senha deve conter 1 numero</ListItem>
-                        <ListItem>A senha deve conter 1 caractere especial</ListItem>
-                        <ListItem>A senha deve conter min 8 e max 20 caracteres</ListItem>
-                      </UnorderedList>
-                    </PopoverBody>
-                  </PopoverContent>
-                </Popover>
-              )}
-            />
-            <FormErrorMessage>{errors.users?.password?.message}</FormErrorMessage>
-          </FormControl>
-          <FormControl isInvalid={passwordConfirmationError}>
-            <FormLabel>Comfirmação de senha</FormLabel>
+          {type === "edit" ? (
+            <></>
+          ) : (
+            <>
+              <FormControl isInvalid={errors.users?.password ? true : false}>
+                <FormLabel>Senha</FormLabel>
+                <Controller
+                  name="users.password"
+                  control={control}
+                  defaultValue={getValues("users.password")}
+                  rules={{ required: "A senha é obrigatorio", maxLength: 40 }}
+                  render={({ field }) => (
+                    <Popover>
+                      <PopoverTrigger>
+                        <ChakraInput
+                          id="users.password"
+                          size={"md"}
+                          bg="white"
+                          type="password"
+                          focusBorderColor="green.300"
+                          {...field}
+                        />
+                      </PopoverTrigger>
+                      <PopoverContent>
+                        <PopoverArrow />
+                        <PopoverCloseButton />
+                        <PopoverHeader>Requisitos</PopoverHeader>
+                        <PopoverBody mx="auto">
+                          <UnorderedList>
+                            <ListItem>A senha deve conter 1 Letra Maiuscula</ListItem>
+                            <ListItem>A senha deve conter 1 Letra Minuscula</ListItem>
+                            <ListItem>A senha deve conter 1 numero</ListItem>
+                            <ListItem>A senha deve conter 1 caractere especial</ListItem>
+                            <ListItem>A senha deve conter min 8 e max 20 caracteres</ListItem>
+                          </UnorderedList>
+                        </PopoverBody>
+                      </PopoverContent>
+                    </Popover>
+                  )}
+                />
+                <FormErrorMessage>{errors.users?.password?.message}</FormErrorMessage>
+              </FormControl>
+              <FormControl isInvalid={passwordConfirmationError}>
+                <FormLabel>Comfirmação de senha</FormLabel>
 
-            <ChakraInput size={"md"} bg="white" type="email" focusBorderColor="green.300" />
+                <ChakraInput size={"md"} bg="white" type="email" focusBorderColor="green.300" />
 
-            <FormErrorMessage>As senhas não conferem</FormErrorMessage>
-          </FormControl>
+                <FormErrorMessage>As senhas não conferem</FormErrorMessage>
+              </FormControl>
+            </>
+          )}
         </SimpleGrid>
 
-        <Box bg={"gray.200"} p={5} mt="8" px="8" borderRadius="8">
+        <Box bg={"gray.100"} p={5} mt="8" px="8" borderRadius="8" boxShadow={"0 0 4px RGBA(0, 0, 0, 0.16)"}>
           <SimpleGrid minChildWidth={"300px"} spacing={2}>
             <FormControl isInvalid={errors.address?.street ? true : false}>
               <FormLabel>Rua</FormLabel>

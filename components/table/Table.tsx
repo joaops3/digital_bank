@@ -9,12 +9,12 @@ interface Props {
 
 const TableStatement: React.FC<Props> = ({tableCaption, tableHead, children}) => {
   return (
-    <Table bg="gray.100" borderRadius={"8"}>
+    <Table bg="gray.100" boxShadow={"0 0 4px RGBA(0, 0, 0, 0.16)"} borderRadius={"8"}>
       <Thead>
         <TableCaption fontSize={{ base: 20, md: 40 }}>{tableCaption}</TableCaption>
         <Tr borderBottom={"gray.900"}>{tableHead}</Tr>
       </Thead>
-      <Tbody >{children}</Tbody>
+      <Tbody>{children}</Tbody>
     </Table>
   );
 }

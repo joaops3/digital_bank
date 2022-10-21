@@ -1,10 +1,10 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
 
-import {Flex, VStack, Input as ChakraInput, InputGroup, FormLabel, FormControl, InputLeftElement, FormHelperText, Button, FormErrorMessage, Image} from "@chakra-ui/react"
+import {Flex, VStack, Input as ChakraInput, Link, InputGroup, FormLabel, Box, FormControl, InputLeftElement, FormHelperText, Button, FormErrorMessage, Image, Text} from "@chakra-ui/react"
 
 import {User, LockSimple} from "phosphor-react"
-import Link from "next/link"
+
 
 
 const Home: NextPage = () => {
@@ -20,15 +20,15 @@ const Home: NextPage = () => {
           p={5}
           px="8"
           borderRadius="8"
-          // boxShadow={"0 0 1rem 2px #9AE6B477"}
+          boxShadow={"0 0 4px RGBA(0, 0, 0, 0.16)"}
+       
         >
           <VStack spacing={"5"}>
             <Image src="/logo.svg" p="5" py="7"></Image>
             <FormControl isInvalid={true} display="flex" justifyContent={"center"}>
-
-            <FormErrorMessage my={3}>E-mail ou senha incorretos!</FormErrorMessage>
+              <FormErrorMessage my={3}>E-mail ou senha incorretos!</FormErrorMessage>
             </FormControl>
-            <FormControl >
+            <FormControl>
               <FormLabel htmlFor="e-mail">E-mail</FormLabel>
               <InputGroup>
                 <InputLeftElement children={<User size={20} />} />
@@ -57,7 +57,7 @@ const Home: NextPage = () => {
                   colorScheme={"whatsapp"}
                 ></ChakraInput>
               </InputGroup>
-              <Link href="/forgot-password">
+              <Link href="/forgot_password" _hover={{ color: "green.400" }}>
                 <FormHelperText color={"green.800"} _hover={{ color: "green.600" }} cursor="pointer">
                   Esqueci minha senha
                 </FormHelperText>
@@ -67,6 +67,15 @@ const Home: NextPage = () => {
             <Button type="submit" mt="3" width={"40%"} colorScheme={"whatsapp"} size="md">
               Login
             </Button>
+
+            <Box textAlign={"left"} w="100%">
+              <Text>
+                Não Possui conta ?{" "}
+                <Link href="/sign" _hover={{ color: "green.400" }}>
+                  Cadastrar
+                </Link>
+              </Text>
+            </Box>
           </VStack>
         </Flex>
       </Flex>

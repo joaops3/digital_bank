@@ -18,8 +18,9 @@ const forgot_password = () => {
           direction={"column"}
           p={5}
           px="8"
+          boxShadow={"0 0 4px RGBA(0, 0, 0, 0.16)"}
           borderRadius="8"
-          // boxShadow={"0 0 1rem 2px #9AE6B477"}
+          
         >
           {isSubmited ? (
             <VStack spacing={"5"}>
