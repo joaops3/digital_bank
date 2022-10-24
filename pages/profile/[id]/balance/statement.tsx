@@ -1,10 +1,10 @@
 import React from "react";
 //import TableStatement from "../../../components/table/Table";
-import MainContainer from "../../../components/UI/MainContainer";
+import MainContainer from "../../../../components/UI/MainContainer";
 import dynamic from "next/dynamic";
 import { Tr, Th, Td } from "@chakra-ui/react";
-import TableItem from "../../../components/table/TableItem";
-const TableStatement = dynamic(() => import("../../../components/table/Table"), { ssr: false });
+import TableItem from "../../../../components/table/TableItem";
+const TableStatement = dynamic(() => import("../../../../components/table/Table"), { ssr: false });
 
 
 const Statement = () => {

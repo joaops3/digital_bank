@@ -14,26 +14,25 @@ import {
   ModalBody,
   ModalCloseButton,
   useDisclosure,
-  Heading,
+  Heading
 } from "@chakra-ui/react";
 import React, { useState } from "react";
-import Card from "../../../components/UI/Card";
-import MainContainer from "../../../components/UI/MainContainer";
+import Card from "../../../../components/UI/Card";
+import MainContainer from "../../../../components/UI/MainContainer";
 import dynamic from "next/dynamic";
 import { IdentificationCard, At, DeviceMobile, QrCode, Car } from "phosphor-react";
-
-const Pix_transfer = () => {
+const Transfer = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const [step1, setStep1] = useState<boolean>(false);
   const [step2, setStep2] = useState<boolean>(false);
-  const [pixType, setPixType] = useState<string>("")
-  const [value, setValue] = useState<string>("")
+  const [pixType, setPixType] = useState<string>("");
+  const [value, setValue] = useState<string>("");
   return (
     <>
       <MainContainer>
         <Flex direction="column" mx="auto" gap="5" mb="5">
-          <Heading>PIX</Heading>
-          <Card title="seus Dados">
+          <Heading>Transferência</Heading>
+          <Card title="Seus Dados">
             <Text as="p">
               <strong>Chave Pix: </strong> 1211121
             </Text>
@@ -46,20 +45,7 @@ const Pix_transfer = () => {
           </Card>
 
           <Card title="Transferência">
-            <HStack display={"flex"} justifyContent="center" w="100%" mx="auto">
-              <IconButton
-                aria-label="pix type button"
-                colorScheme={"green"}
-                icon={<IdentificationCard size={30} />}
-              ></IconButton>
-              <IconButton aria-label="pix type button" colorScheme={"green"} icon={<At size={30} />}></IconButton>
-              <IconButton
-                aria-label="pix type button"
-                colorScheme={"green"}
-                icon={<DeviceMobile size={30} />}
-              ></IconButton>
-            </HStack>
-            <Input mt="5" type={"text"} placeholder="Digite a chave pix..."></Input>
+            <Input mt="5" type={"text"} placeholder="Digite a numero da conta..."></Input>
             <Input
               mt="5"
               type={"number"}
@@ -77,7 +63,7 @@ const Pix_transfer = () => {
           <Modal isOpen={isOpen} onClose={onClose}>
             <ModalOverlay />
             <ModalContent>
-              <ModalHeader>Comfirmação</ModalHeader>
+              <ModalHeader>Confirmação</ModalHeader>
               <ModalCloseButton />
               <ModalBody>
                 <Text>
@@ -109,6 +95,6 @@ const Pix_transfer = () => {
       </MainContainer>
     </>
   );
-};
+}
 
-export default Pix_transfer;
+export default Transfer

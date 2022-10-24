@@ -48,7 +48,7 @@ const Header: React.FC = () => {
       >
         <Flex w={{ base: "100%", md: "100%" }} maxWidth={1420} justify="space-between" align={"center"} py="4">
           <HStack>
-            <Link href="/profile">
+            <Link href={`/profile/1`}>
               <Image src="/logo.svg" width={["40px", "100px"]} mr="2" _hover={{ cursor: "pointer" }}></Image>
             </Link>
             {isMobile ? <BiMenu onClick={() => onOpen()} size="30"></BiMenu> : <HeaderLinks />}
@@ -75,7 +75,7 @@ const Header: React.FC = () => {
                 <Box p="3">
                   <Text>Conta: xxxxx-xx</Text>
                 </Box>
-                <MenuItem href="/profile/user/data">Dados Cadastrais</MenuItem>
+                <MenuItem href={`/profile/1/user/data`}>Dados Cadastrais</MenuItem>
 
                 <MenuItem href="/">Logout</MenuItem>
               </MenuList>

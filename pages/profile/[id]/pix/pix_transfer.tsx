@@ -14,25 +14,26 @@ import {
   ModalBody,
   ModalCloseButton,
   useDisclosure,
-  Heading
+  Heading,
 } from "@chakra-ui/react";
 import React, { useState } from "react";
-import Card from "../../../components/UI/Card";
-import MainContainer from "../../../components/UI/MainContainer";
+import Card from "../../../../components/UI/Card";
+import MainContainer from "../../../../components/UI/MainContainer";
 import dynamic from "next/dynamic";
 import { IdentificationCard, At, DeviceMobile, QrCode, Car } from "phosphor-react";
-const Transfer = () => {
+
+const Pix_transfer = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const [step1, setStep1] = useState<boolean>(false);
   const [step2, setStep2] = useState<boolean>(false);
-  const [pixType, setPixType] = useState<string>("");
+  const [pixType, setPixType] = useState<string>("EMAIL");
   const [value, setValue] = useState<string>("");
   return (
     <>
       <MainContainer>
         <Flex direction="column" mx="auto" gap="5" mb="5">
-          <Heading>Transferência</Heading>
-          <Card title="Seus Dados">
+          <Heading>PIX</Heading>
+          <Card title="seus Dados">
             <Text as="p">
               <strong>Chave Pix: </strong> 1211121
             </Text>
@@ -45,7 +46,30 @@ const Transfer = () => {
           </Card>
 
           <Card title="Transferência">
-            <Input mt="5" type={"text"} placeholder="Digite a numero da conta..."></Input>
+            <HStack display={"flex"} justifyContent="center" w="100%" mx="auto">
+              <IconButton
+                aria-label="pix type button"
+                colorScheme={"green"}
+                onClick={() => setPixType("EMAIL")}
+                icon={<IdentificationCard size={30} />}
+              ></IconButton>
+              <IconButton
+                aria-label="pix type button"
+                onClick={() => setPixType("CPF")}
+                colorScheme={"green"}
+                icon={<At size={30} />}
+              ></IconButton>
+              <IconButton
+                aria-label="pix type button"
+                colorScheme={"green"}
+                onClick={() => setPixType("Mobile")}
+                icon={<DeviceMobile size={30} />}
+              ></IconButton>
+            </HStack>
+            <Text mt="5">
+              <strong>Tipo: </strong> {pixType}
+            </Text>
+            <Input type={"text"} placeholder="Digite a chave pix..."></Input>
             <Input
               mt="5"
               type={"number"}
@@ -63,7 +87,7 @@ const Transfer = () => {
           <Modal isOpen={isOpen} onClose={onClose}>
             <ModalOverlay />
             <ModalContent>
-              <ModalHeader>Confirmação</ModalHeader>
+              <ModalHeader>Comfirmação</ModalHeader>
               <ModalCloseButton />
               <ModalBody>
                 <Text>
@@ -95,6 +119,6 @@ const Transfer = () => {
       </MainContainer>
     </>
   );
-}
+};
 
-export default Transfer
+export default Pix_transfer;

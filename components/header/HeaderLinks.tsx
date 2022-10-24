@@ -35,9 +35,9 @@ const HeaderLinks = forwardRef<HTMLDivElement>(({}, ref) => {
           Operações
         </MenuButton>
         <MenuList bg="gray.100" borderColor={"gray.100"}>
-          <MenuItem href="/profile/transfer">Tranferência</MenuItem>
-          <MenuItem href="/profile/pix/pix_transfer">Pagamento Pix</MenuItem>
-          <MenuItem href="/profile/billet">Pagar Boleto</MenuItem>
+          <MenuItem href={`/profile/1/transfer`}>Tranferência</MenuItem>
+          <MenuItem href={`/profile/1/pix/pix_transfer`}>Pagamento Pix</MenuItem>
+          <MenuItem href={`/profile/1/billet/billet_payment`}>Pagar Boleto</MenuItem>
         </MenuList>
       </Menu>
 
@@ -55,11 +55,11 @@ const HeaderLinks = forwardRef<HTMLDivElement>(({}, ref) => {
           Saldo
         </MenuButton>
         <MenuList bg="gray.100" borderColor={"gray.100"}>
-          <MenuItem href="/profile/balance/statement">Extrato</MenuItem>
+          <MenuItem href={`/profile/1/balance/statement`}>Extrato</MenuItem>
 
-          <MenuItem href="/profile/pix/pix_register">Cadastrar Chave Pix</MenuItem>
+          <MenuItem href={`/profile/1/pix/pix_register`}>Cadastrar Chave Pix</MenuItem>
 
-          <MenuItem href="/profile/billet">Gerar Boleto</MenuItem>
+          <MenuItem href={`/profile/1/billet/billet_creation`}>Gerar Boleto</MenuItem>
         </MenuList>
       </Menu>
       <Menu>

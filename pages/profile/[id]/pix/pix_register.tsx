@@ -13,15 +13,16 @@ import {
   Image,
   Box,
   Heading,
-  Text,IconButton,
-  SimpleGrid
+  Text,
+  IconButton,
+  SimpleGrid,
 } from "@chakra-ui/react";
-import MainContainer from "../../../components/UI/MainContainer";
+import MainContainer from "../../../../components/UI/MainContainer";
 import { IdentificationCard, At, DeviceMobile, QrCode } from "phosphor-react";
 
 const Pix_register = () => {
-const [Value, setValue] = useState<string>("")
-const [selectedInput, setSelectedInput] = useState<string>("CPF")
+  const [Value, setValue] = useState<string>("");
+  const [selectedInput, setSelectedInput] = useState<string>("CPF");
   const changeInput = (): React.ReactNode => {
     switch (selectedInput) {
       case "MOBILE":
@@ -52,7 +53,7 @@ const [selectedInput, setSelectedInput] = useState<string>("CPF")
           </InputGroup>
         );
     }
-  }
+  };
 
   return (
     <>
@@ -110,7 +111,9 @@ const [selectedInput, setSelectedInput] = useState<string>("CPF")
             ></IconButton>
           </SimpleGrid>
           {changeInput()}
-          <Button size="lg" colorScheme={"whatsapp"} mt="8">Salvar</Button>
+          <Button size="lg" colorScheme={"whatsapp"} mt="8">
+            Salvar
+          </Button>
         </Flex>
       </MainContainer>
     </>
