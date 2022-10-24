@@ -21,7 +21,6 @@ const Home: NextPage = () => {
           px="8"
           borderRadius="8"
           boxShadow={"0 0 4px RGBA(0, 0, 0, 0.16)"}
-       
         >
           <VStack spacing={"5"}>
             <Image src="/logo.svg" p="5" py="7"></Image>
@@ -31,7 +30,9 @@ const Home: NextPage = () => {
             <FormControl>
               <FormLabel htmlFor="e-mail">E-mail</FormLabel>
               <InputGroup>
-                <InputLeftElement children={<User size={20} />} />
+                <InputLeftElement>
+                  <User size={20} />
+                </InputLeftElement>
                 <ChakraInput
                   id="e-mail"
                   type={"e-mail"}
@@ -46,7 +47,9 @@ const Home: NextPage = () => {
             <FormControl>
               <FormLabel htmlFor="password">Password</FormLabel>
               <InputGroup>
-                <InputLeftElement children={<LockSimple size={20} />} />
+                <InputLeftElement>
+                  <LockSimple size={20} />
+                </InputLeftElement>
                 <ChakraInput
                   id="password"
                   type={"Password"}

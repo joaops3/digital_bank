@@ -34,50 +34,50 @@ api.interceptors.request.use(
 
 //Refresh token
 
-let isRefreshing = false
-let FailerdRequestsQueue: any = []
-api.interceptors.response.use(
-  (response: AxiosResponse) => {
-    return response;
-  },
-  (error: AxiosError) => {
-    if (error.response?.status === 401) {
-      if (error.response?.data.code === "token.expired") {
-        //const user = getToken()
-        const originalConfig = error.config
-            if(!isRefreshing){
-              isRefreshing = true
-                      api.post("/refreshtoken", { refreshToken: user.refreshToken }).then((response) => {
-                        //setCookie(undefined, "user.token", response.data.token, {maxAge: 60*60*24*30, path: '/'})
-                        //setCookie(undefined, "user.token", response.data.refreshToken, {maxAge: 60*60*24*30, path: '/'})
-                        api.defaults.headers["Authorization"] = `Bearer ${response.data.token}`;
-                        FailerdRequestsQueue.forEach(request => request.onSucess(token))
-                        FailerdRequestsQueue = []
-                      }).catch(error => {
-                          FailerdRequestsQueue.forEach((request) => request.onError(error));
-                             FailerdRequestsQueue = [];
-                      }).finally(() => {isRefreshing = false})
-            }
-            return new Promise((resolve, reject) => {
-              FailerdRequestsQueue.push({
-                onSucess: (token: string) => {
-                  if(!originalConfig){ reject()}
+// let isRefreshing = false
+// let FailerdRequestsQueue: any = []
+// api.interceptors.response.use(
+//   (response: AxiosResponse) => {
+//     return response;
+//   },
+//   (error: AxiosError) => {
+//     if (error.response?.status === 401) {
+//       if (error.response?.data.code === "token.expired") {
+//         //const user = getToken()
+//         const originalConfig = error.config
+//             if(!isRefreshing){
+//               isRefreshing = true
+//                       api.post("/refreshtoken", { refreshToken: user.refreshToken }).then((response) => {
+//                         setCookie(undefined, "user.token", response.data.token, {maxAge: 60*60*24*30, path: '/'})
+//                         setCookie(undefined, "user.token", response.data.refreshToken, {maxAge: 60*60*24*30, path: '/'})
+//                         api.defaults.headers["Authorization"] = `Bearer ${response.data.token}`;
+//                         FailerdRequestsQueue.forEach(request => request.onSucess(token))
+//                         FailerdRequestsQueue = []
+//                       }).catch(error => {
+//                           FailerdRequestsQueue.forEach((request) => request.onError(error));
+//                              FailerdRequestsQueue = [];
+//                       }).finally(() => {isRefreshing = false})
+//             }
+//             return new Promise((resolve, reject) => {
+//               FailerdRequestsQueue.push({
+//                 onSucess: (token: string) => {
+//                   if(!originalConfig){ reject()}
 
-                  originalConfig?.headers["Authorization"] = `Bearer ${token}`
-                  resolve(api(originalConfig))
-                },
-                onError: (error: AxiosError) => {
-                  reject(error)
-                }
-              })
-            })
-      } else {
-           if (error.response?.status === 401) {
-            //destroyCookies()
-            //Router.push("/")
-           }
-           return Promise.reject(error)
-      }
-    }
-  }
-);
+//                   originalConfig?.headers["Authorization"] = `Bearer ${token}`
+//                   resolve(api(originalConfig))
+//                 },
+//                 onError: (error: AxiosError) => {
+//                   reject(error)
+//                 }
+//               })
+//             })
+//       } else {
+//            if (error.response?.status === 401) {
+//             destroyCookies()
+//             Router.push("/")
+//            }
+//            return Promise.reject(error)
+//       }
+//     }
+//   }
+// );

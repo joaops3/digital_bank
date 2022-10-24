@@ -3,7 +3,7 @@ import {Flex, VStack, Input as ChakraInput, InputGroup, FormLabel, FormControl, 
 import Link from "next/link";
 import { CheckCircle } from "phosphor-react";
 import { User, LockSimple } from "phosphor-react";
-const forgot_password = () => {
+const Forgot_password = () => {
 
   const [isSubmited, setIsSubmited] = useState<boolean>(false)
 
@@ -20,16 +20,13 @@ const forgot_password = () => {
           px="8"
           boxShadow={"0 0 4px RGBA(0, 0, 0, 0.16)"}
           borderRadius="8"
-          
         >
           {isSubmited ? (
             <VStack spacing={"5"}>
               <CheckCircle size={50} color="green" />
               <Heading fontSize={20}>E-mail enviado com sucesso</Heading>
 
-              <Button type="submit" mt="3" width={"40%"} colorScheme={"whatsapp"} size="md">
-                Enviar
-              </Button>
+             
             </VStack>
           ) : (
             <VStack spacing={"5"}>
@@ -38,7 +35,9 @@ const forgot_password = () => {
               <FormControl>
                 <FormLabel htmlFor="e-mail">E-mail</FormLabel>
                 <InputGroup>
-                  <InputLeftElement children={<User size={20} />} />
+                  <InputLeftElement>
+                    <User size={20} />
+                  </InputLeftElement>
                   <ChakraInput
                     id="e-mail"
                     type={"e-mail"}
@@ -70,4 +69,4 @@ const forgot_password = () => {
   );
 }
 
-export default forgot_password
+export default Forgot_password

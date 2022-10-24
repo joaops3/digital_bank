@@ -409,8 +409,8 @@ const FormUser = ({ type = "register" }) => {
                 rules={{ required: "A estado é obrigatorio", maxLength: 30 }}
                 render={({ field }) => (
                   <Select placeholder="Selecione" id="address.state" focusBorderColor="green.300" bg="white" {...field}>
-                    {UF.map((state) => {
-                      return <option value={state.uf}>{state.name}</option>;
+                    {UF.map((state, key) => {
+                      return <option key={key} value={state.uf}>{state.name}</option>;
                     })}
                   </Select>
                 )}

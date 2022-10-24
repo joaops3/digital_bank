@@ -14,5 +14,5 @@ const MenuItem = forwardRef<HTMLAnchorElement, Props>(({ children, href, ...rest
     </Link>
   );
 });
-
+MenuItem.displayName = "MenuItem"
 export default MenuItem

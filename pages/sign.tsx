@@ -6,7 +6,7 @@ import {
   Box,
   Link
 } from "@chakra-ui/react";
-const signIn = () => {
+const SignIn = () => {
   return (
     <>
       <Flex w={"100%"} minHeight={"100vh"} align={"center"} justify={"center"} direction="column" mt="5" mb="5">
@@ -21,4 +21,4 @@ const signIn = () => {
   );
 }
 
-export default signIn
+export default SignIn

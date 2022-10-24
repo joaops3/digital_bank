@@ -49,10 +49,9 @@ const Header: React.FC = () => {
         <Flex w={{ base: "100%", md: "100%" }} maxWidth={1420} justify="space-between" align={"center"} py="4">
           <HStack>
             <Link href="/profile">
-              
-              <Image src="/logo.svg" width={"100px"} mr="2" _hover={{cursor: "pointer"}}></Image>
+              <Image src="/logo.svg" width={["40px", "100px"]} mr="2" _hover={{ cursor: "pointer" }}></Image>
             </Link>
-            {isMobile ? <BiMenu onClick={() => onOpen()}></BiMenu> : <HeaderLinks />}
+            {isMobile ? <BiMenu onClick={() => onOpen()} size="30"></BiMenu> : <HeaderLinks />}
           </HStack>
           <HStack spacing={5}>
             <VStack spacing={1}>

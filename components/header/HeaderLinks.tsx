@@ -85,5 +85,5 @@ const HeaderLinks = forwardRef<HTMLDivElement>(({}, ref) => {
     </>
   );
 });
-
+HeaderLinks.displayName = "HeaderLinks"
 export default HeaderLinks;

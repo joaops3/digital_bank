@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   Flex,
   VStack,
@@ -19,7 +19,41 @@ import {
 import MainContainer from "../../../components/UI/MainContainer";
 import { IdentificationCard, At, DeviceMobile, QrCode } from "phosphor-react";
 
-const pix_register = () => {
+const Pix_register = () => {
+const [Value, setValue] = useState<string>("")
+const [selectedInput, setSelectedInput] = useState<string>("CPF")
+  const changeInput = (): React.ReactNode => {
+    switch (selectedInput) {
+      case "MOBILE":
+        return (
+          <InputGroup mt="8" maxW={768}>
+            <InputLeftElement pointerEvents="none">
+              <DeviceMobile size={30} />{" "}
+            </InputLeftElement>
+            <ChakraInput type="tel" placeholder="Phone number" />
+          </InputGroup>
+        );
+      case "EMAIL":
+        return (
+          <InputGroup mt="8" maxW={768}>
+            <InputLeftElement pointerEvents="none">
+              <At size={30} />
+            </InputLeftElement>
+            <ChakraInput type="email" placeholder="EMAIL" />
+          </InputGroup>
+        );
+      case "CPF":
+        return (
+          <InputGroup mt="8" maxW={768}>
+            <InputLeftElement pointerEvents="none">
+              <IdentificationCard size={30} />
+            </InputLeftElement>
+            <ChakraInput type="number" placeholder="CPF" />
+          </InputGroup>
+        );
+    }
+  }
+
   return (
     <>
       <MainContainer>
@@ -27,12 +61,11 @@ const pix_register = () => {
           <SimpleGrid
             gap="4"
             minChildWidth={"320px"}
-           
             column="4"
             flex={1}
             display="flex"
             justifyContent={"center"}
-            flexDirection={"row"}
+            flexDirection={["column", "row"]}
           >
             <IconButton
               colorScheme="green"
@@ -40,8 +73,10 @@ const pix_register = () => {
               size="lg"
               p="10"
               py="20"
-              
               icon={<IdentificationCard size={100} />}
+              onClick={() => {
+                setSelectedInput("CPF");
+              }}
             ></IconButton>
             <IconButton
               colorScheme="green"
@@ -50,6 +85,9 @@ const pix_register = () => {
               p="10"
               py="20"
               icon={<At size={100} />}
+              onClick={() => {
+                setSelectedInput("EMAIL");
+              }}
             ></IconButton>
             <IconButton
               colorScheme="green"
@@ -57,6 +95,9 @@ const pix_register = () => {
               size="lg"
               p="10"
               py="20"
+              onClick={() => {
+                setSelectedInput("MOBILE");
+              }}
               icon={<DeviceMobile size={100} />}
             ></IconButton>
             <IconButton
@@ -68,16 +109,12 @@ const pix_register = () => {
               icon={<QrCode size={100} />}
             ></IconButton>
           </SimpleGrid>
-
-          <InputGroup  mt="5">
-            <InputLeftElement pointerEvents="none" children={<DeviceMobile size={30} />} />
-            <ChakraInput type="tel" placeholder="Phone number" />
-          </InputGroup>
-       
+          {changeInput()}
+          <Button size="lg" colorScheme={"whatsapp"} mt="8">Salvar</Button>
         </Flex>
       </MainContainer>
     </>
   );
 };
 
-export default pix_register;
+export default Pix_register;

@@ -7,7 +7,7 @@ import TableItem from "../../../components/table/TableItem";
 const TableStatement = dynamic(() => import("../../../components/table/Table"), { ssr: false });
 
 
-const statement = () => {
+const Statement = () => {
   return (
     <>
       <MainContainer>
@@ -30,4 +30,4 @@ const statement = () => {
   );
 };
 
-export default statement;
+export default Statement;

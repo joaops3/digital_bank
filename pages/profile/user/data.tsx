@@ -2,7 +2,7 @@ import { Box, Button, Flex, Link, Heading, Text, Highlight, VStack, SimpleGrid }
 import React from 'react'
 import MainContainer from "../../../components/UI/MainContainer"
 import {PencilSimple} from "phosphor-react"
-const data = () => {
+const Data = () => {
   return (
     <>
       <MainContainer>
@@ -84,4 +84,4 @@ const data = () => {
   );
 }
 
-export default data
+export default Data
