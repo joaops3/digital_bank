@@ -8,7 +8,7 @@ const Data = () => {
       <MainContainer>
         <Flex justify={"center"} w="100%" direction={"column"} px={["2", "0"]}>
           <Flex w="100%" justifyContent={"flex-end"}>
-            <Link href="/profile/user/edit" _hover={{ textDecoration: "none" }}>
+            <Link href={`/profile/1/user/edit`} _hover={{ textDecoration: "none" }}>
               <Button leftIcon={<PencilSimple size={20} />} size={"lg"} colorScheme={"whatsapp"}>
                 Editar
               </Button>

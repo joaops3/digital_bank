@@ -21,9 +21,9 @@ const Statement = () => {
             </>
           }
         >
-          <TableItem active={true} name="nome" date="04/02/2022" value="R$1000.00"></TableItem>
-          <TableItem active={false} name="nome" date="04/02/2022" value="R$1000.00"></TableItem>
-          <TableItem active={true} name="nome" date="04/02/2022" value="R$1000.00"></TableItem>
+          <TableItem active={true} name="nome" date="2000-02-10" value="1000.00"></TableItem>
+          <TableItem active={false} name="nome" date="04/02/2022" value="1000.00"></TableItem>
+          <TableItem active={true} name="nome" date="04/02/2022" value="1000.00"></TableItem>
         </TableStatement>
       </MainContainer>
     </>

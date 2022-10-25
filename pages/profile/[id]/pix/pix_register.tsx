@@ -1,59 +1,18 @@
 import React, { useState } from "react";
 import {
   Flex,
-  VStack,
-  Input as ChakraInput,
-  InputGroup,
-  FormLabel,
-  FormControl,
-  InputLeftElement,
-  FormHelperText,
   Button,
-  FormErrorMessage,
-  Image,
-  Box,
-  Heading,
-  Text,
   IconButton,
   SimpleGrid,
 } from "@chakra-ui/react";
 import MainContainer from "../../../../components/UI/MainContainer";
 import { IdentificationCard, At, DeviceMobile, QrCode } from "phosphor-react";
+import SelectedInput from "../../../../components/UI/SelectedInput";
 
 const Pix_register = () => {
-  const [Value, setValue] = useState<string>("");
-  const [selectedInput, setSelectedInput] = useState<string>("CPF");
-  const changeInput = (): React.ReactNode => {
-    switch (selectedInput) {
-      case "MOBILE":
-        return (
-          <InputGroup mt="8" maxW={768}>
-            <InputLeftElement pointerEvents="none">
-              <DeviceMobile size={30} />{" "}
-            </InputLeftElement>
-            <ChakraInput type="tel" placeholder="Phone number" />
-          </InputGroup>
-        );
-      case "EMAIL":
-        return (
-          <InputGroup mt="8" maxW={768}>
-            <InputLeftElement pointerEvents="none">
-              <At size={30} />
-            </InputLeftElement>
-            <ChakraInput type="email" placeholder="EMAIL" />
-          </InputGroup>
-        );
-      case "CPF":
-        return (
-          <InputGroup mt="8" maxW={768}>
-            <InputLeftElement pointerEvents="none">
-              <IdentificationCard size={30} />
-            </InputLeftElement>
-            <ChakraInput type="number" placeholder="CPF" />
-          </InputGroup>
-        );
-    }
-  };
+  const [value, setValue] = useState<string>("");
+  const [selectedInput, setSelectedInput] = useState<"EMAIL" | "CPF" | "MOBILE">("CPF");
+ 
 
   return (
     <>
@@ -110,7 +69,9 @@ const Pix_register = () => {
               icon={<QrCode size={100} />}
             ></IconButton>
           </SimpleGrid>
-          {changeInput()}
+          <SelectedInput selected={selectedInput} value={value} setValue={setValue}>
+
+          </SelectedInput>
           <Button size="lg" colorScheme={"whatsapp"} mt="8">
             Salvar
           </Button>

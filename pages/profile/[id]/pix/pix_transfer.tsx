@@ -3,9 +3,8 @@ import {
   Flex,
   HStack,
   IconButton,
-  Input,
+  Input as ChakraInput,
   Button,
-  Box,
   Modal,
   ModalOverlay,
   ModalContent,
@@ -19,20 +18,21 @@ import {
 import React, { useState } from "react";
 import Card from "../../../../components/UI/Card";
 import MainContainer from "../../../../components/UI/MainContainer";
-import dynamic from "next/dynamic";
-import { IdentificationCard, At, DeviceMobile, QrCode, Car } from "phosphor-react";
+import { IdentificationCard, At, DeviceMobile } from "phosphor-react";
+import SelectedInput from "../../../../components/UI/SelectedInput";
 
 const Pix_transfer = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const [step1, setStep1] = useState<boolean>(false);
-  const [step2, setStep2] = useState<boolean>(false);
-  const [pixType, setPixType] = useState<string>("EMAIL");
+  const [step2, setStep2] = useState<boolean>(false)
   const [value, setValue] = useState<string>("");
+  const [selectedInput, setSelectedInput] = useState<"EMAIL" | "CPF" | "MOBILE">("CPF");
+  
   return (
     <>
       <MainContainer>
         <Flex direction="column" mx="auto" gap="5" mb="5">
-          <Heading>PIX</Heading>
+          <Heading color={"gray.600"}>PIX</Heading>
           <Card title="seus Dados">
             <Text as="p">
               <strong>Chave Pix: </strong> 1211121
@@ -50,34 +50,34 @@ const Pix_transfer = () => {
               <IconButton
                 aria-label="pix type button"
                 colorScheme={"green"}
-                onClick={() => setPixType("EMAIL")}
+                onClick={() => setSelectedInput("EMAIL")}
                 icon={<IdentificationCard size={30} />}
               ></IconButton>
               <IconButton
                 aria-label="pix type button"
-                onClick={() => setPixType("CPF")}
+                onClick={() => setSelectedInput("CPF")}
                 colorScheme={"green"}
                 icon={<At size={30} />}
               ></IconButton>
               <IconButton
                 aria-label="pix type button"
                 colorScheme={"green"}
-                onClick={() => setPixType("Mobile")}
+                onClick={() => setSelectedInput("MOBILE")}
                 icon={<DeviceMobile size={30} />}
               ></IconButton>
             </HStack>
             <Text mt="5">
-              <strong>Tipo: </strong> {pixType}
+              <strong>Tipo: </strong> {selectedInput}
             </Text>
-            <Input type={"text"} placeholder="Digite a chave pix..."></Input>
-            <Input
+          <SelectedInput selected={selectedInput} value={value} setValue={setValue}/>
+            <ChakraInput
               mt="5"
               type={"number"}
               placeholder="Valor"
               onChange={(e) => {
                 setValue(e.target.value);
               }}
-            ></Input>
+            ></ChakraInput>
             <Flex w="100%" mt="5" justifyContent={"center"}>
               <Button colorScheme={"whatsapp"} onClick={onOpen} isDisabled={value === "" ? true : false}>
                 Enviar
@@ -114,7 +114,6 @@ const Pix_transfer = () => {
               </ModalFooter>
             </ModalContent>
           </Modal>
-          {/* {step1 ? <Card title="confirmação"></Card> : <></>} */}
         </Flex>
       </MainContainer>
     </>

@@ -21,6 +21,7 @@ import Card from "../../../../components/UI/Card";
 import MainContainer from "../../../../components/UI/MainContainer";
 import dynamic from "next/dynamic";
 import { IdentificationCard, At, DeviceMobile, QrCode, Car } from "phosphor-react";
+import CurrencyInput from "../../../../components/UI/CurrencyInput";
 const Transfer = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const [step1, setStep1] = useState<boolean>(false);
@@ -46,14 +47,12 @@ const Transfer = () => {
 
           <Card title="Transferência">
             <Input mt="5" type={"text"} placeholder="Digite a numero da conta..."></Input>
-            <Input
+            <CurrencyInput
               mt="5"
-              type={"number"}
               placeholder="Valor"
-              onChange={(e) => {
-                setValue(e.target.value);
-              }}
-            ></Input>
+              currentValue={value}
+              setCurrentValue={setValue}
+            ></CurrencyInput>
             <Flex w="100%" mt="5" justifyContent={"center"}>
               <Button colorScheme={"whatsapp"} onClick={onOpen} isDisabled={value === "" ? true : false}>
                 Enviar

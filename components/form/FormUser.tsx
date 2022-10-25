@@ -34,6 +34,7 @@ import {
 } from "@chakra-ui/react";
 import { IAdress, IUser } from "../../interfaces/interfaces";
 import UF from "../../utils/UF.json";
+import InputMask from "react-input-mask"
 
 interface Props {
   type?: "edit | register";
@@ -189,9 +190,10 @@ const FormUser = ({ type = "register" }) => {
                 defaultValue={getValues("users.document")}
                 rules={{ required: "O CPF é obrigatorio", maxLength: 15 }}
                 render={({ field }) => (
-                  <ChakraInput
+                  <ChakraInput as={InputMask}
                     id="users.document"
-                    type="number"
+                    mask="999.999.999-99"
+                    maskChar={null}
                     size={"md"}
                     bg="white"
                     focusBorderColor="green.300"
