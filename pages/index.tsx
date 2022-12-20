@@ -49,7 +49,7 @@ const Home: NextPage = () => {
                 <InputLeftElement>
                   <User size={20} />
                 </InputLeftElement>
-                <ChakraInput
+                <ChakraInput as={"input"}
                   id="e-mail"
                   type={"e-mail"}
                   placeholder="E-mail"
@@ -70,7 +70,7 @@ const Home: NextPage = () => {
                 <InputLeftElement>
                   <LockSimple size={20} />
                 </InputLeftElement>
-                <ChakraInput
+                <ChakraInput as={"input"}
                   id="password"
                   type={"Password"}
                   placeholder="Password"
@@ -91,7 +91,7 @@ const Home: NextPage = () => {
               </Link>
             </FormControl>
 
-            <Button type="submit" mt="3" width={"40%"} colorScheme={"whatsapp"} size="md">
+            <Button as={"button"} type="submit" mt="3" width={"40%"} colorScheme={"whatsapp"} size="md">
               Login
             </Button>
 

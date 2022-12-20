@@ -444,7 +444,7 @@ const FormUser = ({ type = "register" }) => {
         </Box>
 
         <Flex justify={"flex-end"} mt="5">
-          <Button colorScheme={"whatsapp"} type="submit">
+          <Button as={"button"} colorScheme={"whatsapp"} type="submit">
             Cadastrar
           </Button>
         </Flex>

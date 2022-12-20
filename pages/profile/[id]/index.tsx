@@ -23,7 +23,7 @@ const series = [{ name: "series1", data: [31, 70, 50, 100, 70, 50, 90] }];
         ) : (
           <SimpleGrid flex="1" minChildWidth={320} spacing="2" mx={{ base: "auto", mx: "0" }}>
             <Box bg="gray.100" borderRadius={"8"} px="5" py="5" boxShadow={"0 0 4px RGBA(0, 0, 0, 0.16)"}>
-              <Heading>Fatura Atual</Heading>
+              <Heading as={"h2"}>Fatura Atual</Heading>
               <Flex mt="10" w="100%" justifyContent={"space-between"}>
                 <Text fontSize={15}>R$ 500.00</Text>
                 <Text fontSize={15}>R$ 1500.00</Text>
@@ -39,7 +39,7 @@ const series = [{ name: "series1", data: [31, 70, 50, 100, 70, 50, 90] }];
               </Flex>
             </Box>
             <Box bg="gray.100" borderRadius={"8"} px="5" py="5" boxShadow={"0 0 4px RGBA(0, 0, 0, 0.16)"}>
-              <Heading>Rendimentos mensais</Heading>
+              <Heading as={"h3"}>Rendimentos mensais</Heading>
               <Chart options={chartConfig} series={series} type="area" height={200}></Chart>
             </Box>
           </SimpleGrid>
