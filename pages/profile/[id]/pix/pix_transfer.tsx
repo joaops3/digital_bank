@@ -20,12 +20,15 @@ import Card from "../../../../components/UI/Card";
 import MainContainer from "../../../../components/UI/MainContainer";
 import { IdentificationCard, At, DeviceMobile } from "phosphor-react";
 import SelectedInput from "../../../../components/UI/SelectedInput";
+import CurrencyInput from "../../../../components/UI/CurrencyInput";
+
 
 const Pix_transfer = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const [step1, setStep1] = useState<boolean>(false);
   const [step2, setStep2] = useState<boolean>(false)
   const [value, setValue] = useState<string>("");
+  const [amouth, setAmouth] = useState<string>("")
   const [selectedInput, setSelectedInput] = useState<"EMAIL" | "CPF" | "MOBILE">("CPF");
   
   return (
@@ -33,7 +36,7 @@ const Pix_transfer = () => {
       <MainContainer>
         <Flex direction="column" mx="auto" gap="5" mb="5">
           <Heading color={"gray.600"}>PIX</Heading>
-          <Card title="seus Dados">
+          <Card title="Dados">
             <Text as="p">
               <strong>Chave Pix: </strong> 1211121
             </Text>
@@ -70,14 +73,7 @@ const Pix_transfer = () => {
               <strong>Tipo: </strong> {selectedInput}
             </Text>
           <SelectedInput selected={selectedInput} value={value} setValue={setValue}/>
-            <ChakraInput
-              mt="5"
-              type={"number"}
-              placeholder="Valor"
-              onChange={(e) => {
-                setValue(e.target.value);
-              }}
-            ></ChakraInput>
+            <CurrencyInput value={amouth} setValue={setAmouth} mt={4}></CurrencyInput>
             <Flex w="100%" mt="5" justifyContent={"center"}>
               <Button colorScheme={"whatsapp"} onClick={onOpen} isDisabled={value === "" ? true : false}>
                 Enviar

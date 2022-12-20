@@ -9,3 +9,4 @@ export const removeSpecialCharacters = (string: string): string => {
 export const onlyNumbers = (document: string) => {
   return document.replace(/\D/g, "");
 };
+

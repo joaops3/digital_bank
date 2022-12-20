@@ -4,6 +4,7 @@ import {
   Button,
   IconButton,
   SimpleGrid,
+  Heading,
 } from "@chakra-ui/react";
 import MainContainer from "../../../../components/UI/MainContainer";
 import { IdentificationCard, At, DeviceMobile, QrCode } from "phosphor-react";
@@ -17,7 +18,8 @@ const Pix_register = () => {
   return (
     <>
       <MainContainer>
-        <Flex direction={"column"} p="8" alignItems={"center"} minWidth="100%" justifyContent="center">
+        <Flex direction={"column"} p="5" alignItems={"center"} minWidth="100%" justifyContent="center">
+          <Heading mb="4">Cadastrar Chave</Heading>
           <SimpleGrid
             gap="4"
             minChildWidth={"320px"}
@@ -69,9 +71,7 @@ const Pix_register = () => {
               icon={<QrCode size={100} />}
             ></IconButton>
           </SimpleGrid>
-          <SelectedInput selected={selectedInput} value={value} setValue={setValue}>
-
-          </SelectedInput>
+          <SelectedInput selected={selectedInput} value={value} setValue={setValue}></SelectedInput>
           <Button size="lg" colorScheme={"whatsapp"} mt="8">
             Salvar
           </Button>

@@ -1,20 +1,26 @@
 import React from 'react'
-import {NumberInput, NumberInputField, NumberInputProps} from "@chakra-ui/react"
+import {NumberInput, NumberInputField, NumberInputProps, InputProps, Input as ChakraInput} from "@chakra-ui/react"
+import { onlyNumbers, currencyFormater } from "../../utils/helpers"
 
-interface Props extends NumberInputProps {
-  currentValue: string
-  setCurrentValue: (val: any) => void
+interface Props extends InputProps {
+  value: string
+  setValue: (e: string)=> void
 }
 
-const CurrencyInput: React.FC<Props> = ({currentValue, setCurrentValue, ...rest}) => {
-
-   const format = (val: string) => `R$` + val;
-   const parse = (val: string) => val.replace(/^\$/, "");
-  const [value, setValue] = React.useState(currentValue);
+const CurrencyInput: React.FC<Props> = ({value, setValue, ...rest}) => {
+ 
+ 
+ 
+ const convertToMoney = (val : string) => {
+  val = val.replace(/\D/g, "");
+  val = val.replace(/(\d)(\d{2})$/, "$1,$2");
+  val = val.replace(/(?=(\d{3})+(\D))\B/g, ".")
+  setValue(val)
+};
   return (
-    <NumberInput onChange={(valueString) => {setValue(parse(valueString)); setCurrentValue(value)}} value={format(value)} {...rest}>
-      <NumberInputField />
-    </NumberInput>
+    <ChakraInput value={value} onChange={(e) => {convertToMoney(e.target.value);}} {...rest}>
+   
+    </ChakraInput>
   );
 }
 

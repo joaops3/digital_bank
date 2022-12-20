@@ -77,9 +77,9 @@ const HeaderLinks = forwardRef<HTMLDivElement>(({}, ref) => {
           Suporte
         </MenuButton>
         <MenuList bg="gray.100" borderColor={"gray.100"}>
-          <MenuItem href="#">Whatsapp</MenuItem>
+          <MenuItem href={`/profile/1/support/whatsapp`}>Whatsapp</MenuItem>
 
-          <MenuItem href="#">Telefone</MenuItem>
+          <MenuItem href={`/profile/1/support/phone`}>Telefone</MenuItem>
         </MenuList>
       </Menu>
     </>
