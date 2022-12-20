@@ -90,7 +90,7 @@ const FormUser = ({ type = "register" }) => {
               name="users.first_name"
               control={control}
               defaultValue={getValues("users.first_name")}
-              rules={{ required: "O primeiro nome é obrigatorio", maxLength: 20 }}
+              rules={{ required: "O primeiro nome é obrigatório", maxLength: 20 }}
               render={({ field }) => (
                 <ChakraInput
                   id="users.first_name"
@@ -110,7 +110,7 @@ const FormUser = ({ type = "register" }) => {
               name="users.last_name"
               control={control}
               defaultValue={getValues("users.last_name")}
-              rules={{ required: "O sobrenome é obrigatorio", maxLength: 20 }}
+              rules={{ required: "O sobrenome é obrigatório", maxLength: 20 }}
               render={({ field }) => (
                 <ChakraInput
                   id="users.last_name"
@@ -131,7 +131,7 @@ const FormUser = ({ type = "register" }) => {
               name="users.date_of_birth"
               control={control}
               defaultValue={getValues("users.date_of_birth")}
-              rules={{ required: "A data de nascimento é obrigatorio", maxLength: 20 }}
+              rules={{ required: "A data de nascimento é obrigatório", maxLength: 20 }}
               render={({ field }) => (
                 <ChakraInput
                   id="users.date_of_birth"
@@ -151,7 +151,7 @@ const FormUser = ({ type = "register" }) => {
               name="users.mothers_name"
               control={control}
               defaultValue={getValues("users.mothers_name")}
-              rules={{ required: "O nome da mãe é obrigatorio", maxLength: 20 }}
+              rules={{ required: "O nome da mãe é obrigatório", maxLength: 20 }}
               render={({ field }) => (
                 <ChakraInput id="users.mothers_name" size={"md"} bg="white" focusBorderColor="green.300" {...field} />
               )}
@@ -164,7 +164,7 @@ const FormUser = ({ type = "register" }) => {
               name="users.genre"
               control={control}
               defaultValue={getValues("users.genre")}
-              rules={{ required: "O nome da mãe é obrigatorio", maxLength: 20 }}
+              rules={{ required: "O nome da genero é obrigatório", maxLength: 20 }}
               render={({ field }) => (
                 <RadioGroup defaultValue="MALE">
                   <Stack spacing={5} direction="row">
@@ -188,7 +188,7 @@ const FormUser = ({ type = "register" }) => {
                 name="users.document"
                 control={control}
                 defaultValue={getValues("users.document")}
-                rules={{ required: "O CPF é obrigatorio", maxLength: 15 }}
+                rules={{ required: "O CPF é obrigatório", maxLength: 15 }}
                 render={({ field }) => (
                   <ChakraInput as={InputMask}
                     id="users.document"
@@ -210,7 +210,7 @@ const FormUser = ({ type = "register" }) => {
               name="users.mobile"
               control={control}
               defaultValue={getValues("users.mobile")}
-              rules={{ required: "O Celular é obrigatorio", maxLength: 15 }}
+              rules={{ required: "O Celular é obrigatório", maxLength: 15 }}
               render={({ field }) => (
                 <ChakraInput
                   id="users.mobile"
@@ -230,7 +230,7 @@ const FormUser = ({ type = "register" }) => {
               name="users.phone"
               control={control}
               defaultValue={getValues("users.phone")}
-              //rules={{ required: "O Telefone é obrigatorio", maxLength: 15 }}
+              //rules={{ required: "O Telefone é obrigatório", maxLength: 15 }}
               render={({ field }) => (
                 <ChakraInput
                   id="users.phone"
@@ -250,7 +250,7 @@ const FormUser = ({ type = "register" }) => {
               name="users.email"
               control={control}
               defaultValue={getValues("users.email")}
-              rules={{ required: "O Email é obrigatorio", maxLength: 40 }}
+              rules={{ required: "O Email é obrigatório", maxLength: 40 }}
               render={({ field }) => (
                 <ChakraInput
                   id="users.email"
@@ -275,7 +275,7 @@ const FormUser = ({ type = "register" }) => {
                   name="users.password"
                   control={control}
                   defaultValue={getValues("users.password")}
-                  rules={{ required: "A senha é obrigatorio", maxLength: 40 }}
+                  rules={{ required: "A senha é obrigatório", maxLength: 40 }}
                   render={({ field }) => (
                     <Popover>
                       <PopoverTrigger>
@@ -326,7 +326,7 @@ const FormUser = ({ type = "register" }) => {
                 name="address.street"
                 control={control}
                 defaultValue={getValues("address.street")}
-                rules={{ required: "A rua é obrigatorio", maxLength: 50 }}
+                rules={{ required: "A rua é obrigatório", maxLength: 50 }}
                 render={({ field }) => (
                   <ChakraInput
                     id="address.street"
@@ -338,7 +338,7 @@ const FormUser = ({ type = "register" }) => {
                   />
                 )}
               />
-              <FormErrorMessage>{errors.address?.neighborhood?.message}</FormErrorMessage>
+              <FormErrorMessage>{errors.address?.street?.message}</FormErrorMessage>
             </FormControl>
             <FormControl isInvalid={errors.address?.neighborhood ? true : false}>
               <FormLabel>bairro</FormLabel>
@@ -346,7 +346,7 @@ const FormUser = ({ type = "register" }) => {
                 name="address.neighborhood"
                 control={control}
                 defaultValue={getValues("address.neighborhood")}
-                rules={{ required: "O bairro é obrigatorio", maxLength: 40 }}
+                rules={{ required: "O bairro é obrigatório", maxLength: 40 }}
                 render={({ field }) => (
                   <ChakraInput
                     id="address.neighborhood"
@@ -358,7 +358,7 @@ const FormUser = ({ type = "register" }) => {
                   />
                 )}
               />
-              <FormErrorMessage>{errors.address?.number?.message}</FormErrorMessage>
+              <FormErrorMessage>{errors.address?.neighborhood?.message}</FormErrorMessage>
             </FormControl>
             <FormControl isInvalid={errors.address?.number ? true : false}>
               <FormLabel>Numero</FormLabel>
@@ -366,7 +366,7 @@ const FormUser = ({ type = "register" }) => {
                 name="address.number"
                 control={control}
                 defaultValue={getValues("address.number")}
-                rules={{ required: "O numero é obrigatorio", maxLength: 15 }}
+                rules={{ required: "O numero é obrigatório", maxLength: 15 }}
                 render={({ field }) => (
                   <ChakraInput
                     id="address.number"
@@ -388,7 +388,7 @@ const FormUser = ({ type = "register" }) => {
                 name="address.city"
                 control={control}
                 defaultValue={getValues("address.city")}
-                rules={{ required: "A cidade é obrigatorio", maxLength: 30 }}
+                rules={{ required: "A cidade é obrigatório", maxLength: 30 }}
                 render={({ field }) => (
                   <ChakraInput
                     id="address.city"
@@ -408,7 +408,7 @@ const FormUser = ({ type = "register" }) => {
                 name="address.state"
                 control={control}
                 defaultValue={getValues("address.state")}
-                rules={{ required: "A estado é obrigatorio", maxLength: 30 }}
+                rules={{ required: "O estado é obrigatório", maxLength: 30 }}
                 render={({ field }) => (
                   <Select placeholder="Selecione" id="address.state" focusBorderColor="green.300" bg="white" {...field}>
                     {UF.map((state, key) => {
@@ -425,7 +425,7 @@ const FormUser = ({ type = "register" }) => {
                 name="address.zip_code"
                 control={control}
                 defaultValue={getValues("address.zip_code")}
-                rules={{ required: "O Cep é obrigatorio", maxLength: 15 }}
+                rules={{ required: "O Cep é obrigatório", maxLength: 15 }}
                 render={({ field }) => (
                   <ChakraInput
                     id="address.zip_code"

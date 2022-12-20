@@ -1,6 +1,6 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
-
+import {useState} from "react"
 import {Flex, VStack, Input as ChakraInput, Link, InputGroup, FormLabel, Box, FormControl, InputLeftElement, FormHelperText, Button, FormErrorMessage, Image, Text} from "@chakra-ui/react"
 
 import {User, LockSimple} from "phosphor-react"
@@ -9,9 +9,15 @@ import { useRouter } from "next/router"
 
 const Home: NextPage = () => {
   const router = useRouter()
-
+  const [email, setEmail] = useState<string>("")
+  const [password, setPassword] = useState<string>("");
+  const [error, setError] = useState<boolean>(false)
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
+    if(!email || !password) {
+      setError(true)
+      return
+    }
     router.push("/profile/1");
   };
 
@@ -34,7 +40,7 @@ const Home: NextPage = () => {
         >
           <VStack spacing={"5"}>
             <Image src="/logo.svg" p="5" py="7"></Image>
-            <FormControl isInvalid={false} display="flex" justifyContent={"center"}>
+            <FormControl isInvalid={error} display="flex" justifyContent={"center"}>
               <FormErrorMessage my={3}>E-mail ou senha incorretos!</FormErrorMessage>
             </FormControl>
             <FormControl>
@@ -51,6 +57,10 @@ const Home: NextPage = () => {
                   bg={"white"}
                   focusBorderColor="green.500"
                   colorScheme={"whatsapp"}
+                  value={email}
+                  onChange={(e) => {
+                    setEmail(e.target.value);
+                  }}
                 ></ChakraInput>
               </InputGroup>
             </FormControl>
@@ -68,6 +78,10 @@ const Home: NextPage = () => {
                   bg={"white"}
                   focusBorderColor="green.500"
                   colorScheme={"whatsapp"}
+                  value={password}
+                  onChange={(e) => {
+                    setPassword(e.target.value);
+                  }}
                 ></ChakraInput>
               </InputGroup>
               <Link href="/forgot_password" _hover={{ color: "green.400" }}>

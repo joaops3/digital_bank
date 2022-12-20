@@ -18,15 +18,13 @@ const Forgot_password = () => {
           direction={"column"}
           p={5}
           px="8"
-          boxShadow={"0 0 4px RGBA(0, 0, 0, 0.16)"}
+          boxShadow={"1px 6px 92px -2px rgba(0,0,0,0.4);"}
           borderRadius="8"
         >
           {isSubmited ? (
             <VStack spacing={"5"}>
               <CheckCircle size={50} color="green" />
               <Heading fontSize={20}>E-mail enviado com sucesso</Heading>
-
-             
             </VStack>
           ) : (
             <VStack spacing={"5"}>
