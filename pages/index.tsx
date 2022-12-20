@@ -4,10 +4,17 @@ import Head from 'next/head'
 import {Flex, VStack, Input as ChakraInput, Link, InputGroup, FormLabel, Box, FormControl, InputLeftElement, FormHelperText, Button, FormErrorMessage, Image, Text} from "@chakra-ui/react"
 
 import {User, LockSimple} from "phosphor-react"
-
+import { useRouter } from "next/router"
 
 
 const Home: NextPage = () => {
+  const router = useRouter()
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault()
+    router.push("/profile/1");
+  };
+
   return (
     <>
       <Flex w={"100%"} height={"100vh"} align={"center"} justify={"center"}>
@@ -19,12 +26,15 @@ const Home: NextPage = () => {
           direction={"column"}
           p={5}
           px="8"
+          onSubmit={(e) => {
+            handleSubmit(e);
+          }}
           borderRadius="8"
-          boxShadow={"0 0 4px RGBA(0, 0, 0, 0.16)"}
+          boxShadow={"1px 6px 92px -2px rgba(0,0,0,0.4);"}
         >
           <VStack spacing={"5"}>
             <Image src="/logo.svg" p="5" py="7"></Image>
-            <FormControl isInvalid={true} display="flex" justifyContent={"center"}>
+            <FormControl isInvalid={false} display="flex" justifyContent={"center"}>
               <FormErrorMessage my={3}>E-mail ou senha incorretos!</FormErrorMessage>
             </FormControl>
             <FormControl>
