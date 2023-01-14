@@ -18,7 +18,7 @@ const CurrencyInput: React.FC<Props> = ({value, setValue, ...rest}) => {
   setValue(val)
 };
   return (
-    <ChakraInput value={value} onChange={(e) => {convertToMoney(e.target.value);}} {...rest}>
+    <ChakraInput value={value} onChange={(e) => {convertToMoney(e.target.value)}} {...rest}>
    
     </ChakraInput>
   );

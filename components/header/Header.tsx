@@ -18,7 +18,8 @@ import {
   useDisclosure,
 } from "@chakra-ui/react";
 
-import { BiMenu, BiShow } from "react-icons/bi";
+import { BiMenu} from "react-icons/bi";
+import {BsEyeSlash, BsEye } from "react-icons/bs";
 
 import MenuItem from "./MenuItem";
 import HeaderLinks from "./HeaderLinks";
@@ -61,7 +62,7 @@ const Header: React.FC = () => {
                 <Text fontSize={{ base: "10", md: "15" }} minWidth={"77px"}>
                   {showBalance ? "R$ 1000.00" : ""}
                 </Text>
-                <BiShow size={25} style={{ cursor: "pointer" }} onClick={() => setShowBalance(!showBalance)}></BiShow>
+                { showBalance ? <BsEye size={25} style={{ cursor: "pointer" }} onClick={() => setShowBalance(!showBalance)}></BsEye> : <BsEyeSlash size={25} style={{ cursor: "pointer" }} onClick={() => setShowBalance(!showBalance)}></BsEyeSlash> }
               </HStack>
             </VStack>
             <Menu>

@@ -47,6 +47,7 @@ const Billet_payment = () => {
               }}
               placeholder="Código de barras"
               mt={4}
+              focusBorderColor="green.500"
             ></ChakraInput>
             <Flex w="100%" mt="5" justifyContent={"center"}>
               <Button

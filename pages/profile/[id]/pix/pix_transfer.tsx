@@ -53,12 +53,12 @@ const Pix_transfer = () => {
               <IconButton
                 aria-label="pix type button"
                 colorScheme={"green"}
-                onClick={() => setSelectedInput("EMAIL")}
+                onClick={() => setSelectedInput("CPF")}
                 icon={<IdentificationCard size={30} />}
               ></IconButton>
               <IconButton
                 aria-label="pix type button"
-                onClick={() => setSelectedInput("CPF")}
+                onClick={() => setSelectedInput("EMAIL")}
                 colorScheme={"green"}
                 icon={<At size={30} />}
               ></IconButton>

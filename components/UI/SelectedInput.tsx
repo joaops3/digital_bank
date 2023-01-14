@@ -22,7 +22,7 @@ const SelectedInput: React.FC<Props> = ({selected, value, setValue}) => {
             <InputLeftElement pointerEvents="none">
               <DeviceMobile size={30} />{" "}
             </InputLeftElement>
-            <ChakraInput as={InputMask} mask={`(99) 99999-9999`} value={value} onChange={(e) => setValue(e.target.value)} maskChar={null} type="tel" placeholder="Phone number" />
+            <ChakraInput as={InputMask}   focusBorderColor="green.500" mask={`(99) 99999-9999`} value={value} onChange={(e) => setValue(e.target.value)} maskChar={null} type="tel" placeholder="Phone number" />
           </InputGroup>
         );
       case "EMAIL":
@@ -31,7 +31,7 @@ const SelectedInput: React.FC<Props> = ({selected, value, setValue}) => {
             <InputLeftElement pointerEvents="none">
               <At size={30} />
             </InputLeftElement>
-            <ChakraInput type="email" placeholder="EMAIL" value={value} onChange={(e) => setValue(e.target.value)} />
+            <ChakraInput type="email"   focusBorderColor="green.500"placeholder="EMAIL" value={value} onChange={(e) => setValue(e.target.value)} />
           </InputGroup>
         );
       case "CPF":
@@ -47,7 +47,8 @@ const SelectedInput: React.FC<Props> = ({selected, value, setValue}) => {
               value={value}
               onChange={(e) => setValue(e.target.value)}
               maskChar={null}
-              placeholder="CPF"
+              placeholder="CPF"  
+              focusBorderColor="green.500"
             />
           </InputGroup>
         );

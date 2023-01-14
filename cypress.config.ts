@@ -16,3 +16,4 @@ export default defineConfig({
     screenshotOnRunFailure: false
   },
 });
+

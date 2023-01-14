@@ -46,12 +46,13 @@ const Transfer = () => {
           </Card>
 
           <Card title="Transferência">
-            <Input mt="5" type={"text"} placeholder="Digite a numero da conta..."></Input>
+            <Input mt="5" type={"text"} placeholder="Digite a numero da conta..."  focusBorderColor="green.500"></Input>
             <CurrencyInput
               mt="5"
               placeholder="Valor"
-              currentValue={value}
-              setCurrentValue={setValue}
+              value={value}
+              setValue={setValue}
+              focusBorderColor="green.500"
             ></CurrencyInput>
             <Flex w="100%" mt="5" justifyContent={"center"}>
               <Button colorScheme={"whatsapp"} onClick={onOpen} isDisabled={value === "" ? true : false}>
